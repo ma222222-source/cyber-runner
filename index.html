@@ -2,105 +2,6 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-<title>CYBER RUNNER</title>
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<style>
-  /* 既存のv5のスタイルをすべてここに維持 */
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
-  body{margin:0;background:#000;color:#fff;overflow:hidden;touch-action:none;font-family:Orbitron,sans-serif;}
-  #gc{display:block;position:fixed;inset:0;z-index:1;}
-  #hud, #sel, #gover{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-  .hid{display:none!important;}
-</style>
-</head>
-<body>
-<canvas id="gc"></canvas>
-<div id="hud">...</div>
-<div id="sel">...</div>
-<div id="gover" class="hid">...</div>
-
-<script>
-// --- LINE連携 ---
-const LIFF_ID = "2010429448-CoKvflXn";
-
-// --- 操作・スワイプバック対策 ---
-document.addEventListener('touchstart', (e) => {
-  const x = e.touches[0].clientX;
-  if(x < 20 || x > window.innerWidth - 20) return;
-  e.preventDefault();
-}, {passive: false});
-
-// --- 起動処理 ---
-async function main() {
-  try {
-    await liff.init({ liffId: LIFF_ID });
-    if (!liff.isLoggedIn()) {
-      liff.login();
-    } else {
-      console.log("LIFF Ready");
-      // ゲーム開始の準備が整った後に、v5の初期化処理を呼ぶ
-      initGameEngine();
-    }
-  } catch(e) {
-    console.error("LIFF Error:", e);
-    initGameEngine();
-  }
-}
-
-// --- v5の全ロジックをここに統合 ---
-function initGameEngine() {
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-<title>CYBER RUNNER</title>
-<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<style>
-  /* 既存のスタイルをここに配置 */
-  body{margin:0;background:#000;color:#fff;overflow:hidden;touch-action:none;}
-  #gc{display:block;position:fixed;inset:0;}
-</style>
-</head>
-<body>
-<canvas id="gc"></canvas>
-<script>
-// --- LINE連携・認証設定 ---
-const LIFF_ID = "2010429448-CoKvflXn";
-
-// --- 操作・スワイプバック対策 ---
-document.addEventListener('touchstart', (e) => {
-  const x = e.touches[0].clientX;
-  if(x < 20 || x > window.innerWidth - 20) return;
-  e.preventDefault();
-}, {passive: false});
-
-// --- メイン起動処理 ---
-async function main() {
-  try {
-    await liff.init({ liffId: LIFF_ID });
-    if (!liff.isLoggedIn()) {
-      liff.login();
-    } else {
-      // 認証完了後、既存のゲームエンジンを起動
-      console.log("LIFF Ready. Starting Game...");
-      initGameEngine(); // 既存のv5の初期化関数をここに呼ぶ
-    }
-  } catch(e) {
-    console.error("LIFF Init Failed:", e);
-    initGameEngine(); // オフライン起動用
-  }
-}
-
-// 既存のv5のコード（変数定義、レンダラー、ループ等）を以下に全て貼り付ける
-function initGameEngine() {
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1488,19 +1389,6 @@ document.getElementById('btn-sel').addEventListener('click',()=>{
   buildCharUI(); selectChar(selIdx);
 });
 
-</script>
-</body>
-</html>
-
-}
-
-main();
-</script>
-</body>
-</html>
-}
-
-main();
 </script>
 </body>
 </html>
